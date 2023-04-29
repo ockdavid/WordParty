@@ -7,6 +7,8 @@ import streamlit as st
 from io import StringIO
 import time
 
+st.title('Word Party')
+
 # Upload the file to analyze
 uploaded_file = st.file_uploader("Upload file to analyze", type=['txt'])
 
