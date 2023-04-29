@@ -6,7 +6,7 @@ from spacy.lang.en.stop_words import STOP_WORDS
 import streamlit as st
 
 # Leer el archivo de texto
-with open('chat.txt', 'r') as f:
+with open('chat.txt', 'r', encoding='utf-8') as f:
     chat = f.read()
 
 # This new list (new_chat) is gonna store individual messages after every new line(\n)
@@ -64,11 +64,20 @@ for token in doc_1:
     if (token.is_alpha) and not(token.lemma_.lower() in STOP_WORDS):
         filtrado.append(token.text.lower())
 
+words_as_string = ' '.join(filtrado)
+
 # Crear el objeto WordCloud con las opciones deseadas
 wordcloud = WordCloud(width=800, height=800, background_color='white', min_font_size=10, max_words=50).generate(words_as_string)
 
-# Visualizar el WordCloud generado
-plt.figure(figsize=(8,8))
-plt.imshow(wordcloud, interpolation='bilinear')
-plt.axis("off")
-plt.show()
+fig, ax = plt.subplots(figsize=(5,5))
+
+# Visualizar el WordCloud generado en la subtrama
+ax.imshow(wordcloud, interpolation='bilinear')
+ax.axis("off")
+
+st.pyplot(fig)
+
+# plt.show()
+
+# st.text('This is some text.')
+# st.text(len(filtrado))
