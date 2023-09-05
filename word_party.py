@@ -49,7 +49,7 @@ if uploaded_file is not None:
     doc_1 = nlp(chat_str)
 
     # Definir una lista de palabras para agregar al conjunto (set)
-    add_stop_words = ['medium', 'omit','media', 'message', 'deleted']
+    add_stop_words = ['medium', 'omit','media', 'message', 'deleted', 'multimedia', 'omitido', 'Multimedia']
 
     # Agregar las palabras de la lista al conjunto (set) usando el método update()
     STOP_WORDS.update(add_stop_words)
@@ -77,8 +77,6 @@ if uploaded_file is not None:
                 pass
         
         if st.button('Show World Cloud'):
-            with st.spinner('Wait for it...'):
-                time.sleep(3)
                 fig, ax = plt.subplots(figsize=(5,5))
 
                 # Visualizar el WordCloud generado en la subtrama
@@ -86,4 +84,4 @@ if uploaded_file is not None:
                 ax.axis("off")
 
                 st.pyplot(fig)
-            st.success('Done!')
+                st.success('Done!')
