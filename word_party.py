@@ -8,6 +8,7 @@ from io import StringIO
 import time
 
 st.title('Word Party')
+st.markdown("Export any WhatsApp chat you desire and upload it below to visualize the most common words in a generated word cloud")
 
 # Upload the file to analyze
 uploaded_file = st.file_uploader("Upload file to analyze", type=['txt'])
