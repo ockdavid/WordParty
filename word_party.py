@@ -69,13 +69,11 @@ if uploaded_file is not None:
     st.write('Words: ', max_words_inserted)
     
     if max_words_inserted>0:
-        with st.spinner('Wait for it...'):
-            time.sleep(3)
-            # Crear el objeto WordCloud con las opciones deseadas
-            try:
-                wordcloud = WordCloud(width=800, height=800, background_color='white', min_font_size=10, max_words=max_words_inserted).generate(words_as_string)
-            except IndexError:
-                pass
+        # Crear el objeto WordCloud con las opciones deseadas
+        try:
+            wordcloud = WordCloud(width=800, height=800, background_color='white', min_font_size=10, max_words=max_words_inserted).generate(words_as_string)
+        except IndexError:
+            pass
         
         if st.button('Show World Cloud'):
                 fig, ax = plt.subplots(figsize=(5,5))
