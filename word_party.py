@@ -5,6 +5,7 @@ import io
 from NLP_analysis import NLP_analysis_english, NLP_analysis_spanish
 from spacy.lang.en.stop_words import STOP_WORDS
 import spacy
+from spacy.lang.es.stop_words import STOP_WORDS
 
 st.set_page_config(
     page_title="Word Party 📃",
@@ -95,7 +96,9 @@ if uploaded_file is not None:
             if (comment.count('/')<3):
                 cleaned_chat.append(comment)
     chat_str = ' '.join(cleaned_chat)
-    nlp = spacy.load("en_core_web_sm")
+    # nlp = spacy.load("en_core_web_sm")
+    nlp = spacy.load("es_core_news_sm")
+
     doc_1 = nlp(chat_str)
     # Definir una lista de palabras para agregar al conjunto (set)
     add_stop_words = ['medium', 'omit','media', 'message', 'deleted', 'multimedia', 'omitido', 'Multimedia']
