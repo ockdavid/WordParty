@@ -3,7 +3,8 @@ import streamlit as st
 import en_core_web_sm
 import es_core_news_sm
 
-
+import spacy.cli
+spacy.cli.download("es_core_news_sm")
 
 
 
@@ -91,8 +92,8 @@ def NLP_analysis_spanish(chat):
 
     chat_str = ' '.join(cleaned_chat)
     # nlp = spacy.load("es_core_news_sm")
-    # nlp = es_core_news_sm.load()
-    nlp = spacy.load(r"C:\Users\ockda\Documents\Barcelona Technology School\Proyectos Git\WordParty\wordparty-env\Lib\site-packages\es_core_news_md\es_core_news_md-3.6.0")
+    nlp = es_core_news_sm.load()
+    # nlp = spacy.load(r"C:\Users\ockda\Documents\Barcelona Technology School\Proyectos Git\WordParty\wordparty-env\Lib\site-packages\es_core_news_md\es_core_news_md-3.6.0")
     nlp.max_length = 2000000
 
     doc_1 = nlp(chat_str)
