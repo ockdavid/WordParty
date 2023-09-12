@@ -7,7 +7,26 @@ import streamlit as st
 from io import StringIO
 import time
 
-st.title('Word Party 📃')
+st.set_page_config(
+    page_title="Word Party 📃",
+    page_icon="📃",
+    layout="wide",
+    initial_sidebar_state="expanded",
+    menu_items={
+        'Get Help': 'https://www.linkedin.com/in/david-landeo/',
+        'Report a bug': "https://www.linkedin.com/in/david-landeo/",
+        'About': "This app allows you to get a wordcloud of your WhatsApp chat"
+    }
+)
+
+hide_menu_style = """
+                <style>
+                footer {visibility: hidden; }
+                </style>
+                """
+st.markdown(hide_menu_style, unsafe_allow_html=True)
+
+# st.title('Word Party 📃')
 st.markdown("Export any WhatsApp chat you desire and upload it below to visualize the most common words in a generated word cloud.")
 
 # Upload the file to analyze
