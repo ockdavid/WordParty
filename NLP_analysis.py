@@ -3,6 +3,7 @@ import spacy
 
 def NLP_analysis_english(chat):
     from spacy.lang.en.stop_words import STOP_WORDS
+    
     new_chat = []
     a = 0
     b = 0
@@ -54,6 +55,7 @@ def NLP_analysis_english(chat):
 
 def NLP_analysis_spanish(chat):
     from spacy.lang.es.stop_words import STOP_WORDS
+    
     new_chat = []
     a = 0
     b = 0
