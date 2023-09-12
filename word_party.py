@@ -99,7 +99,7 @@ if uploaded_file is not None:
     words_as_string = ' '.join(filtrado)
 
     # Get the number of words for the word cloud
-    number = st.number_input('How many words do you want to show?', min_value=int, max_value=int, step=int, value=int, format='%d')
+    number = st.number_input('How many words do you want to show?', format='%d')
     max_words_inserted = int(number)
     st.write('Words: ', max_words_inserted)
     
