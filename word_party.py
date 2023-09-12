@@ -30,7 +30,8 @@ st.markdown(hide_menu_style, unsafe_allow_html=True)
 # if "visibility" not in st.session_state:
 #     st.session_state.visibility = "hidden"
 
-st.session_state.image = False
+if "image" not in st.session_state:
+    st.session_state.image = False
 
 def show_image():
     st.session_state.image = True
@@ -110,8 +111,8 @@ if uploaded_file is not None:
         except IndexError:
             pass
         
-        if st.button('Show World Cloud') or st.session_state.image:
-                st.session_state.image = True
+        if st.button('Show World Cloud', on_change = show_image) or st.session_state.image:
+                # st.session_state.image = True
                 st.write(st.session_state.image)
                 fig, ax = plt.subplots(figsize=(5,5))
 
