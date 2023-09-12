@@ -30,7 +30,7 @@ if "image" not in st.session_state:
     st.session_state.image = False
 
 if "language" not in st.session_state:
-    st.session_state.language = "Portuguese"
+    st.session_state.language = "Español"
 
 if "n_words" not in st.session_state:
     st.session_state.n_words = 0
@@ -45,6 +45,8 @@ uploaded_file = st.file_uploader("Upload file to analyze", type=['txt'])
 option = st.selectbox(
     'WhatsApp Chat language',
     ('English', 'Español'), key='language')
+
+st.write(st.session_state.language)
 
 # Very if there's a file
 if uploaded_file is not None:
