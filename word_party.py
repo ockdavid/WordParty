@@ -27,27 +27,25 @@ hide_menu_style = """
                 """
 st.markdown(hide_menu_style, unsafe_allow_html=True)
 
-# if "visibility" not in st.session_state:
-#     st.session_state.visibility = "hidden"
 
 if "image" not in st.session_state:
     st.session_state.image = False
 
+if "language" not in st.session_state:
+    st.session_state.language = "English"
+
 def show_image():
     st.session_state.image = True
-
-st.write(st.session_state.image)
-
-# def language_chosen():
-#     if st.session_state.language: 
-#         st.sessi
-
 
 st.title('Word Party 📃')
 st.markdown("Export any WhatsApp chat you desire and upload it below to visualize the most common words in a generated word cloud.")
 
 # Upload the file to analyze
 uploaded_file = st.file_uploader("Upload file to analyze", type=['txt'])
+
+option = st.selectbox(
+    'WhatsApp Chat language',
+    ('English', 'Español'), key='language')
 
 # Verificar si se cargó un archivo
 if uploaded_file is not None:
@@ -112,8 +110,6 @@ if uploaded_file is not None:
             pass
         
         if st.button('Show World Cloud', on_click = show_image) or st.session_state.image:
-                # st.session_state.image = True
-                st.write(st.session_state.image)
                 fig, ax = plt.subplots(figsize=(5,5))
 
                 # Visualizar el WordCloud generado en la subtrama
