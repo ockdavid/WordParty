@@ -111,7 +111,7 @@ if uploaded_file is not None:
         except IndexError:
             pass
         
-        if st.button('Show World Cloud', on_change = show_image) or st.session_state.image:
+        if st.button('Show World Cloud', on_click = show_image) or st.session_state.image:
                 # st.session_state.image = True
                 st.write(st.session_state.image)
                 fig, ax = plt.subplots(figsize=(5,5))
