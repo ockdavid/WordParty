@@ -7,6 +7,7 @@ import streamlit as st
 from io import StringIO
 import time
 import io
+from NLP_analysis import NLP_analysis_english, NLP_analysis_spanish
 
 st.set_page_config(
     page_title="Word Party 📃",
@@ -51,8 +52,10 @@ option = st.selectbox(
 if uploaded_file is not None:
     # Leer el contenido del archivo
     chat = uploaded_file.read().decode('utf-8')
-
-    new_chat = []
+    all_words = NLP_analysis_english(chat)
+    
+    
+    '''new_chat = []
     a = 0
     b = 0
 
@@ -95,8 +98,10 @@ if uploaded_file is not None:
         if (token.is_alpha) and not(token.lemma_.lower() in STOP_WORDS):
             filtrado.append(token.text.lower())
 
-    words_as_string = ' '.join(filtrado)
+    words_as_string = ' '.join(filtrado)'''
 
+    words_as_string = all_words
+    
     # Get the number of words for the word cloud
     number = st.number_input('How many words do you want to show?', format='%f')
     max_words_inserted = int(number)
