@@ -1,7 +1,11 @@
 import spacy
 import streamlit as st
 import en_core_web_sm
-import es_core_news_sm
+# import es_core_news_sm
+
+
+
+
 
 def NLP_analysis_english(chat):
     from spacy.lang.en.stop_words import STOP_WORDS
@@ -87,7 +91,8 @@ def NLP_analysis_spanish(chat):
 
     chat_str = ' '.join(cleaned_chat)
     # nlp = spacy.load("es_core_news_sm")
-    nlp = es_core_news_sm.load()
+    # nlp = es_core_news_sm.load()
+    nlp = spacy.load("\\wordparty-env\\Lib\\site-packages\\es_core_news_sm")
     nlp.max_length = 2000000
 
     doc_1 = nlp(chat_str)
