@@ -30,7 +30,7 @@ if "image" not in st.session_state:
     st.session_state.image = False
 
 if "language" not in st.session_state:
-    st.session_state.language = ""
+    st.session_state.language = " "
 
 if "n_words" not in st.session_state:
     st.session_state.n_words = 0
