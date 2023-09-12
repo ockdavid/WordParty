@@ -6,6 +6,7 @@ from spacy.lang.en.stop_words import STOP_WORDS
 import streamlit as st
 from io import StringIO
 import time
+import io
 
 st.set_page_config(
     page_title="Word Party 📃",
@@ -25,6 +26,11 @@ hide_menu_style = """
                 </style>
                 """
 st.markdown(hide_menu_style, unsafe_allow_html=True)
+
+# def language_chosen():
+#     if st.session_state.language: 
+#         st.sessi
+
 
 st.title('Word Party 📃')
 st.markdown("Export any WhatsApp chat you desire and upload it below to visualize the most common words in a generated word cloud.")
@@ -102,4 +108,19 @@ if uploaded_file is not None:
                 ax.axis("off")
 
                 st.pyplot(fig)
-                st.success('Done!')
+                plt.savefig('wordcloud.png')
+                buffer = io.BytesIO()
+                plt.savefig(buffer, format='png')
+                buffer.seek(0)  # Vuelve al principio del buffer
+
+                imagen_en_variable = buffer.read()
+
+                # Cierra el buffer
+                buffer.close()
+                
+                st.download_button(
+                    label="Download data as CSV",
+                    data=imagen_en_variable,
+                    file_name='wordcloud.png',
+                    mime='text/csv',
+                )
