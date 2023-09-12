@@ -110,7 +110,7 @@ if uploaded_file is not None:
                 st.pyplot(fig)
                 plt.savefig('wordcloud.png')
                 buffer = io.BytesIO()
-                plt.savefig(buffer, format='png')
+                plt.savefig(fig, format='png')
                 buffer.seek(0)  # Vuelve al principio del buffer
 
                 imagen_en_variable = buffer.read()
@@ -119,8 +119,8 @@ if uploaded_file is not None:
                 buffer.close()
                 
                 st.download_button(
-                    label="Download data as CSV",
+                    label="Download image",
                     data=imagen_en_variable,
                     file_name='wordcloud.png',
-                    mime='text/csv',
+                    mime='image/png',
                 )
