@@ -1,7 +1,8 @@
 import spacy
-from spacy.lang.en.stop_words import STOP_WORDS
+
 
 def NLP_analysis_english(chat):
+    from spacy.lang.en.stop_words import STOP_WORDS
     new_chat = []
     a = 0
     b = 0
@@ -52,6 +53,7 @@ def NLP_analysis_english(chat):
 
 
 def NLP_analysis_spanish(chat):
+    from spacy.lang.es.stop_words import STOP_WORDS
     new_chat = []
     a = 0
     b = 0
@@ -79,7 +81,7 @@ def NLP_analysis_spanish(chat):
                 cleaned_chat.append(comment)
 
     chat_str = ' '.join(cleaned_chat)
-    nlp = spacy.load("en_core_web_sm")
+    nlp = spacy.load("es_core_news_sm")
     nlp.max_length = 2000000
 
     doc_1 = nlp(chat_str)
