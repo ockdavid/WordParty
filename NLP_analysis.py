@@ -1,4 +1,5 @@
 import spacy
+import streamlit as st
 
 
 def NLP_analysis_english(chat):
