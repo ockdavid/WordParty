@@ -1,6 +1,6 @@
 import spacy
 import streamlit as st
-
+import en_core_web_sm
 
 def NLP_analysis_english(chat):
     from spacy.lang.en.stop_words import STOP_WORDS
@@ -32,7 +32,8 @@ def NLP_analysis_english(chat):
                 cleaned_chat.append(comment)
 
     chat_str = ' '.join(cleaned_chat)
-    nlp = spacy.load("en_core_web_sm")
+    # nlp = spacy.load("en_core_web_sm")
+    nlp = en_core_web_sm.load()
     nlp.max_length = 2000000
 
     doc_1 = nlp(chat_str)
