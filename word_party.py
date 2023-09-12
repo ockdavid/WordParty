@@ -35,6 +35,8 @@ st.session_state.image = False
 def show_image():
     st.session_state.image = True
 
+st.write(st.session_state.image)
+
 # def language_chosen():
 #     if st.session_state.language: 
 #         st.sessi
@@ -97,7 +99,7 @@ if uploaded_file is not None:
     words_as_string = ' '.join(filtrado)
 
     # Get the number of words for the word cloud
-    number = st.number_input('How many words do you want to show?', format='%.0f')
+    number = st.number_input('How many words do you want to show?',step=int, format='%.0f')
     max_words_inserted = int(number)
     st.write('Words: ', max_words_inserted)
     
@@ -109,6 +111,7 @@ if uploaded_file is not None:
             pass
         
         if st.button('Show World Cloud', on_click = show_image) or st.session_state.image:
+                st.write(st.session_state.image)
                 fig, ax = plt.subplots(figsize=(5,5))
 
                 # Visualizar el WordCloud generado en la subtrama
