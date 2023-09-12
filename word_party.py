@@ -30,7 +30,7 @@ if "image" not in st.session_state:
     st.session_state.image = False
 
 if "language" not in st.session_state:
-    st.session_state.language = "English"
+    st.session_state.language = ""
 
 if "n_words" not in st.session_state:
     st.session_state.n_words = 0
@@ -52,8 +52,10 @@ if uploaded_file is not None:
     chat = uploaded_file.read().decode('utf-8')
 
     if st.session_state.language == "English":
+        st.write('En inglés')
         words_as_string = NLP_analysis_english(chat)
-    else:
+    elif st.session_state.language == "Español":
+        st.write('En español')
         words_as_string = NLP_analysis_spanish(chat)
 
     # Get the number of words for the word cloud
