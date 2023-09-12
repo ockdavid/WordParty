@@ -3,7 +3,7 @@ import spacy
 
 def NLP_analysis_english(chat):
     from spacy.lang.en.stop_words import STOP_WORDS
-    
+
     new_chat = []
     a = 0
     b = 0
@@ -37,8 +37,8 @@ def NLP_analysis_english(chat):
     doc_1 = nlp(chat_str)
 
     # Definir una lista de palabras para agregar al conjunto (set)
-    add_stop_words = ['medium', 'omit','media', 'message', 'deleted', \
-        'multimedia', 'omitido', 'Multimedia', 'q']
+    add_stop_words = ['medium', 'omit', 'omitted','media', 'message', 'deleted', \
+        'multimedia', 'omitido', 'Multimedia', 'q','p']
 
     # Agregar las palabras de la lista al conjunto (set) usando el método update()
     STOP_WORDS.update(add_stop_words)
@@ -83,14 +83,14 @@ def NLP_analysis_spanish(chat):
                 cleaned_chat.append(comment)
 
     chat_str = ' '.join(cleaned_chat)
-    nlp = spacy.load("es_core_news_sm")
+    nlp = spacy.load("es_core_news_md")
     nlp.max_length = 2000000
 
     doc_1 = nlp(chat_str)
 
     # Definir una lista de palabras para agregar al conjunto (set)
-    add_stop_words = ['medium', 'omit','media', 'message', 'deleted', \
-        'multimedia', 'omitido', 'Multimedia', 'q']
+    add_stop_words = ['medium', 'omit', 'omitted','media', 'message', 'deleted', \
+        'multimedia', 'omitido', 'Multimedia', 'q','p']
 
     # Agregar las palabras de la lista al conjunto (set) usando el método update()
     STOP_WORDS.update(add_stop_words)
