@@ -26,7 +26,7 @@ hide_menu_style = """
                 """
 st.markdown(hide_menu_style, unsafe_allow_html=True)
 
-# st.title('Word Party 📃')
+st.title('Word Party 📃')
 st.markdown("Export any WhatsApp chat you desire and upload it below to visualize the most common words in a generated word cloud.")
 
 # Upload the file to analyze
