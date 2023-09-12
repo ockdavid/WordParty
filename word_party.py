@@ -27,6 +27,14 @@ hide_menu_style = """
                 """
 st.markdown(hide_menu_style, unsafe_allow_html=True)
 
+# if "visibility" not in st.session_state:
+#     st.session_state.visibility = "hidden"
+
+st.session_state.image = False
+
+def show_image():
+    st.session_state.image = True
+
 # def language_chosen():
 #     if st.session_state.language: 
 #         st.sessi
@@ -100,7 +108,7 @@ if uploaded_file is not None:
         except IndexError:
             pass
         
-        if st.button('Show World Cloud'):
+        if st.button('Show World Cloud', on_click = show_image) or st.session_state.image:
                 fig, ax = plt.subplots(figsize=(5,5))
 
                 # Visualizar el WordCloud generado en la subtrama
@@ -110,7 +118,7 @@ if uploaded_file is not None:
                 st.pyplot(fig)
                 plt.savefig('wordcloud.png')
                 buffer = io.BytesIO()
-                plt.savefig(fig, format='png')
+                plt.savefig(buffer, format='png')
                 buffer.seek(0)  # Vuelve al principio del buffer
 
                 imagen_en_variable = buffer.read()
