@@ -88,8 +88,8 @@ def NLP_analysis_spanish(chat):
                 cleaned_chat.append(comment)
 
     chat_str = ' '.join(cleaned_chat)
-    nlp = spacy.load("es_core_news_sm")
-    # nlp = es_core_news_sm.load()
+    # nlp = spacy.load("es_core_news_sm")
+    nlp = es_core_news_sm.load()
     # nlp = spacy.load(r"C:\Users\ockda\Documents\Barcelona Technology School\Proyectos Git\WordParty\wordparty-env\Lib\site-packages\es_core_news_md\es_core_news_md-3.6.0")
     nlp.max_length = 2000000
 
