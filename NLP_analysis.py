@@ -1,9 +1,24 @@
 import spacy
+import os
 import streamlit as st
+import requests
 import en_core_web_sm
 import es_core_news_sm
 
 # URL= https://github.com/explosion/spacy-models/releases/download/es_core_news_sm-3.6.0/es_core_news_sm-3.6.0-py3-none-any.whl
+
+if "es_core_news_sm" not in spacy.util.get_installed_models():
+    # URL del archivo .whl
+    url = "https://github.com/explosion/spacy-models/releases/download/es_core_news_sm-3.6.0/es_core_news_sm-3.6.0-py3-none-any.whl"
+    
+    # Descarga el archivo
+    response = requests.get(url)
+    if response.status_code == 200:
+        with open("es_core_news_sm-3.6.0-py3-none-any.whl", "wb") as file:
+            file.write(response.content)
+        
+        # Instala el modelo desde el archivo descargado
+        os.system("pip install es_core_news_sm-3.6.0-py3-none-any.whl")
 
 def NLP_analysis_english(chat):
     from spacy.lang.en.stop_words import STOP_WORDS
@@ -88,8 +103,8 @@ def NLP_analysis_spanish(chat):
                 cleaned_chat.append(comment)
 
     chat_str = ' '.join(cleaned_chat)
-    # nlp = spacy.load("es_core_news_sm")
-    nlp = es_core_news_sm.load()
+    nlp = spacy.load("es_core_news_sm")
+    # nlp = es_core_news_sm.load()
     # nlp = spacy.load(r"C:\Users\ockda\Documents\Barcelona Technology School\Proyectos Git\WordParty\wordparty-env\Lib\site-packages\es_core_news_md\es_core_news_md-3.6.0")
     nlp.max_length = 2000000
 
