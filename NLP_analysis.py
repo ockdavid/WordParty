@@ -3,6 +3,7 @@ import streamlit as st
 import en_core_web_sm
 import es_core_news_sm
 
+# URL= https://github.com/explosion/spacy-models/releases/download/es_core_news_sm-3.6.0/es_core_news_sm-3.6.0-py3-none-any.whl
 
 def NLP_analysis_english(chat):
     from spacy.lang.en.stop_words import STOP_WORDS
