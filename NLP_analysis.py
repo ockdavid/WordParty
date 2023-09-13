@@ -109,4 +109,5 @@ def NLP_analysis_spanish(chat):
             filtrado.append(token.text.lower())
 
     words_as_string = ' '.join(filtrado)
+    
     return words_as_string
