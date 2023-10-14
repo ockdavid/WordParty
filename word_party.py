@@ -96,8 +96,8 @@ if uploaded_file is not None:
             if (comment.count('/')<3):
                 cleaned_chat.append(comment)
     chat_str = ' '.join(cleaned_chat)
-    # nlp = spacy.load("en_core_web_sm")
-    nlp = spacy.load("es_core_news_sm")
+    nlp = spacy.load("en_core_web_sm")
+    # nlp = spacy.load("es_core_news_sm")
 
     doc_1 = nlp(chat_str)
     # Definir una lista de palabras para agregar al conjunto (set)
