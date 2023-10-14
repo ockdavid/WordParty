@@ -5,7 +5,7 @@ import io
 from NLP_analysis import NLP_analysis_english, NLP_analysis_spanish
 from spacy.lang.en.stop_words import STOP_WORDS
 import spacy
-from spacy.lang.es.stop_words import STOP_WORDS
+# from spacy.lang.es.stop_words import STOP_WORDS
 
 st.set_page_config(
     page_title="Word Party 📃",
